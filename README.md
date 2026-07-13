@@ -2,12 +2,12 @@
 ## **A Personal Museum Collection System**
 
 ## Overview
-- Museum Memories is **a personalized museum visit recording and collection management system** designed to help users document museums they have visited and the artifacts they find meaningful. 
-Users can **record their favourite artifacts** within the museum, including their names, historical periods, and descriptions. Users can ***search for artifacts from different historical periods** across museums in their travel history.
+- Museum Memories is **a personalized museum visit recording and collection management system** designed to help users document museums they have visited and the artifacts they find meaningful.
+Users can **record their favourite artifacts** within the museum, including their names, historical periods, and descriptions. Users can **search for artifacts from different historical periods** across museums in their travel history.
 
-- This project is designed for people who **enjoy visiting museums**, exploring cultural heritage, and recording their travel experiences.
+- This project is designed for people who enjoy visiting museums, exploring cultural heritage, and recording their travel experiences.
 
-- For me, I do not want the artifacts and knowledge I gained from each museum visit to gradually be forgotten. Therefore, I want to create a personal collection database where I can organize and revisit my discoveries. This project provides a simple way to transform my scattered museum visits into an organized personal collection archive.
+- For me, preserving the artifacts and knowledge gained from each museum visit is important, as I do not want these meaningful experiences to be gradually forgotten. Therefore, I aim to create a personal collection database that allows me to organize, preserve, and revisit my discoveries. This project provides an effective and intuitive way to transform scattered museum visits into a structured personal collection archive.
 
 
 
