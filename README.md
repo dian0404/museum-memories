@@ -1,7 +1,8 @@
 # Museum Memories
-## **A Personal Museum Collection System**
+**A Personal Museum Collection System**
 
-## Overview
+
+## 1. Overview
 - Museum Memories is **a personalized museum visit recording and collection management system** designed to help users document museums they have visited and the artifacts they find meaningful.
 Users can **record their favourite artifacts** within the museum, including their names, historical periods, and descriptions. Users can **search for artifacts from different historical periods** across museums in their travel history.
 
@@ -11,12 +12,11 @@ Users can **record their favourite artifacts** within the museum, including thei
 
 
 
+## 2. User stories
 
-## A subtitle
+- As a user, As a user, I want to be able to add an artifact to a museum and specify its name, dynasty, description, and my rating.
+- As a user, I want to be able to view the list of all artifacts in a specific museum.
+- As a user, I want to be able to find the artifact with the highest rating within a specific museum.
+- As a user, I want to be able to find all artifacts from a specific dynasty across all museums in my collection.
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
 
-An example of text with **bold** and *italic* fonts.  
