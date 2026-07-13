@@ -14,7 +14,7 @@ Users can **record their favourite artifacts** within the museum, including thei
 
 ## 2. User stories
 
-- As a user, As a user, I want to be able to add an artifact to a museum and specify its name, dynasty, description, and my rating.
+- As a user, I want to be able to add an artifact to a museum and specify its name, dynasty, description, and my rating.
 - As a user, I want to be able to view the list of all artifacts in a specific museum.
 - As a user, I want to be able to find the artifact with the highest rating within a specific museum.
 - As a user, I want to be able to find all artifacts from a specific dynasty across all museums in my collection.
