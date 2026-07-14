@@ -15,26 +15,40 @@ public class ArtifactCollection {
     // MODIFIES: this
     // EFFECTS: adds an artifact to the collection
     public void addArtifact(Artifact artifact) {
-        
+        if (!artifacts.contains(artifact)) {
+            artifacts.add(artifact);
+        }
     }
 
     // EFFECTS: returns the list of all artifacts in the collection
     public List<Artifact> getArtifacts() {
-        return null;
+        return artifacts;
     }
 
     // EFFECTS: returns a list of all 5-star artifacts in the collection
     public List<Artifact> getFiveStarArtifacts() {
-        return null;
+        List<Artifact> fiveStarArtifacts = new ArrayList<>();
+        for (Artifact artifact : artifacts) {
+            if (artifact.isFiveStar()) {
+                fiveStarArtifacts.add(artifact);
+            }
+        }
+        return fiveStarArtifacts;
     }
 
     // EFFECTS: returns a list of all artifacts from the specified museum in the collection
     public List<Artifact> getArtifactsByMuseum(String museumName) {
-        return null;
+        List<Artifact> museumArtifacts = new ArrayList<>();
+        for (Artifact artifact : artifacts) {
+            if (artifact.belongsToMuseum(museumName)) {
+                museumArtifacts.add(artifact);
+            }
+        }
+        return museumArtifacts;
     }
 
     // EFFECTS: returns the total number of artifacts in the collection
     public int totalArtifacts() {
-        return 0;
+        return artifacts.size();
     }
 }
