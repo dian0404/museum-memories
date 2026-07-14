@@ -32,4 +32,9 @@ public class ArtifactCollection {
     public List<Artifact> getArtifactsByMuseum(String museumName) {
         return null;
     }
+
+    // EFFECTS: returns the total number of artifacts in the collection
+    public int totalArtifacts() {
+        return 0;
+    }
 }
