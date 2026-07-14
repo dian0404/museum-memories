@@ -15,7 +15,7 @@ public class ArtifactCollectionTest {
     private Artifact a3;
 
     @BeforeEach
-    void runBefore() {
+    public void runBefore() {
         testCollection = new ArtifactCollection();
         a1 = new Artifact(
                 "T-shaped Silk Painting of Mawangdui",
@@ -35,7 +35,7 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    void testAddArtifact() {
+    public void testAddArtifact() {
         checkCollectionSize(0);
         testCollection.addArtifact(a1);
         checkCollectionSize(1);
@@ -43,7 +43,7 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    void testAddArtifactDuplicate() {
+    public void testAddArtifactMultiplierTimes() {
         checkCollectionSize(0);
         testCollection.addArtifact(a1);
         checkCollectionSize(1);
@@ -52,7 +52,7 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    void testGetArtifacts() {
+    public void testGetArtifacts() {
         testCollection.addArtifact(a1);
         testCollection.addArtifact(a2);
         List<Artifact> artifacts = testCollection.getArtifacts();
@@ -62,7 +62,7 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    void testGetFiveStarArtifacts() {
+    public void testGetFiveStarArtifacts() {
         testCollection.addArtifact(a1);
         testCollection.addArtifact(a2);
         testCollection.addArtifact(a3);
@@ -75,7 +75,7 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    void testGetArtifactsByMuseum() {
+    public void testGetArtifactsByMuseum() {
         testCollection.addArtifact(a1);
         testCollection.addArtifact(a2);
         testCollection.addArtifact(a3);
@@ -84,6 +84,16 @@ public class ArtifactCollectionTest {
         assertEquals(2, hunanArtifacts.size());
         assertTrue(hunanArtifacts.contains(a1));
         assertTrue(hunanArtifacts.contains(a2));
+    }
+
+
+    @Test
+    public void testTotalArtifacts(){
+        assertEquals(0, testCollection.totalArtifacts());
+        testCollection.addArtifact(a1);
+        assertEquals(1, testCollection.totalArtifacts());
+        testCollection.addArtifact(a3);
+        assertEquals(2, testCollection.totalArtifacts());
     }
 
     private void checkCollectionSize(int expectedSize) {
