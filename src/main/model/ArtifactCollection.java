@@ -46,9 +46,4 @@ public class ArtifactCollection {
         }
         return museumArtifacts;
     }
-
-    // EFFECTS: returns the total number of artifacts in the collection
-    public int totalArtifacts() {
-        return artifacts.size();
-    }
 }
