@@ -36,6 +36,7 @@ public class Artifact {
         return rating;
     }
 
+    //
     // EFFECTS: returns true if the artifact has a 5-star rating
     // false otherwise
     public boolean isFiveStar() {

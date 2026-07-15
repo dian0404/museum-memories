@@ -25,6 +25,7 @@ public class ArtifactCollection {
         return artifacts;
     }
 
+    // REQUIRES: artifacts not empty
     // EFFECTS: returns a list of all 5-star artifacts in the collection
     public List<Artifact> getFiveStarArtifacts() {
         List<Artifact> fiveStarArtifacts = new ArrayList<>();
@@ -36,6 +37,7 @@ public class ArtifactCollection {
         return fiveStarArtifacts;
     }
 
+    // REQUIRES: artifacts not empty
     // EFFECTS: returns a list of all artifacts from the specified museum in the collection
     public List<Artifact> getArtifactsByMuseum(String museumName) {
         List<Artifact> museumArtifacts = new ArrayList<>();

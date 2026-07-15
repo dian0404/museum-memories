@@ -38,6 +38,7 @@ public class ArtifactCollectionTest {
     public void testConstructor(){
         checkCollectionSize(0);
     }
+    
     @Test
     public void testAddArtifact() {
         checkCollectionSize(0);
@@ -47,12 +48,21 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    public void testAddArtifactMultiplierTimes() {
+    public void testAddSameArtifactMultiplierTimes() {
         checkCollectionSize(0);
         testCollection.addArtifact(a1);
         checkCollectionSize(1);
         testCollection.addArtifact(a1);
         checkCollectionSize(1);
+    }
+
+    @Test
+    public void testAddDifferentArtifactMultiplierTimes() {
+        checkCollectionSize(0);
+        testCollection.addArtifact(a1);
+        checkCollectionSize(1);
+        testCollection.addArtifact(a2);
+        checkCollectionSize(2);
     }
 
     @Test

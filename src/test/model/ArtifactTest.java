@@ -9,7 +9,7 @@ public class ArtifactTest {
     private Artifact testArtifact;
 
     @BeforeEach
-    void runBefore() {
+    public void runBefore() {
         testArtifact = new Artifact(
                 "Gold-mounted Agate Rhinoceros Cup",
                 "Shaanxi History Museum",
@@ -18,7 +18,7 @@ public class ArtifactTest {
     }
 
     @Test
-    void testConstructor() {
+    public void testConstructor() {
         assertEquals("Gold-mounted Agate Rhinoceros Cup", testArtifact.getName());
         assertEquals("Shaanxi History Museum", testArtifact.getMuseum());
         assertEquals("Tang Dynasty silk road national treasure, top cultural relic", testArtifact.getDescription());
@@ -26,20 +26,26 @@ public class ArtifactTest {
     }
 
     @Test
-    void testIsFiveStar() {
+    public void testIsFiveStarTrue() {
         assertTrue(testArtifact.isFiveStar());
+    }
 
-        Artifact poorArtifact = new Artifact(
+    @Test
+    public void testIsFiveStarFalse() {
+        Artifact testArtifactWith4Star = new Artifact(
                 "Houmuwu Ding",
                 "National Museum of China, Beijing",
                 "Largest and heaviest bronze sacrificial vessel of Shang Dynasty",
                 4);
-        assertFalse(poorArtifact.isFiveStar());
+        assertFalse(testArtifactWith4Star.isFiveStar());
     }
 
     @Test
-    void testBelongsToMuseum() {
+    public void testBelongsToMuseumTrue() {
         assertTrue(testArtifact.belongsToMuseum("Shaanxi History Museum"));
+    }
+    @Test
+    public void testBelongsToMuseumFalse() {
         assertFalse(testArtifact.belongsToMuseum("National Museum of China, Beijing"));
     }
 }
