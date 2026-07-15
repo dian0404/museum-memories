@@ -3,6 +3,7 @@ package model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -92,6 +93,28 @@ public class ArtifactCollectionTest {
         assertTrue(fiveStars.contains(a1));
         assertTrue(fiveStars.contains(a3));
         assertFalse(fiveStars.contains(a2));
+    }
+
+    @Test
+    void testGetMuseumNamesSameNames() {
+        testCollection.addArtifact(a1);
+        testCollection.addArtifact(a2);
+
+        Set<String> names = testCollection.getMuseumNames();
+        assertEquals(1, names.size());
+        assertTrue(names.contains("Hunan Museum"));
+        assertTrue(names.contains("Hunan Museum"));
+    }
+    
+    @Test
+    void testGetMuseumNamesDifferentNames() {
+        testCollection.addArtifact(a2);
+        testCollection.addArtifact(a3);
+
+        Set<String> names = testCollection.getMuseumNames();
+        assertEquals(2, names.size());
+        assertTrue(names.contains("Hunan Museum"));
+        assertTrue(names.contains("Hunan Museum"));
     }
 
     @Test

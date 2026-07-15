@@ -2,7 +2,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ArtifactCollection {
     private List<Artifact> artifacts;
@@ -38,7 +40,19 @@ public class ArtifactCollection {
     }
 
     // REQUIRES: artifacts not empty
-    // EFFECTS: returns a list of all artifacts from the specified museum in the collection
+    // EFFECTS: Returns a set containing all unique museum names associated
+    // with the artifacts in the collection.
+    public Set<String> getMuseumNames() {
+        Set<String> names = new HashSet<>();
+        for (Artifact a : artifacts) {
+            names.add(a.getMuseum());
+        }
+        return names;
+    }
+
+    // REQUIRES: artifacts not empty
+    // EFFECTS: returns a list of all artifacts from the specified museum in the
+    // collection
     public List<Artifact> getArtifactsByMuseum(String museumName) {
         List<Artifact> museumArtifacts = new ArrayList<>();
         for (Artifact artifact : artifacts) {
