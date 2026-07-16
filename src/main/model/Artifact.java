@@ -1,4 +1,5 @@
 // Represents an artifact with a name, museum, description, and rating.
+
 package model;
 
 public class Artifact {
@@ -36,7 +37,6 @@ public class Artifact {
         return rating;
     }
 
-    //
     // EFFECTS: returns true if the artifact has a 5-star rating
     // false otherwise
     public boolean isFiveStar() {
@@ -44,8 +44,8 @@ public class Artifact {
             return true;
         } else {
             return false;
+        }
     }
-}
 
     // EFFECTS: returns true if the artifact belongs to the specified museum
     // false otherwise

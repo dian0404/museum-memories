@@ -44,6 +44,7 @@ public class ArtifactTest {
     public void testBelongsToMuseumTrue() {
         assertTrue(testArtifact.belongsToMuseum("Shaanxi History Museum"));
     }
+
     @Test
     public void testBelongsToMuseumFalse() {
         assertFalse(testArtifact.belongsToMuseum("National Museum of China, Beijing"));

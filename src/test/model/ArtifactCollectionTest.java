@@ -36,7 +36,7 @@ public class ArtifactCollectionTest {
     }
 
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         checkCollectionSize(0);
     }
     

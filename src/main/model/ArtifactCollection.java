@@ -1,4 +1,5 @@
 // Represents a collection of artifacts.
+
 package model;
 
 import java.util.ArrayList;
