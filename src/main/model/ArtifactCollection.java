@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// REQUIRES: All elements in this list must be non-null.
+// EFFECTS: Maintains a list of artifacts in the collection.
 public class ArtifactCollection {
     private List<Artifact> artifacts;
 

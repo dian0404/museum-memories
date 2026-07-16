@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.Set;
 
-    // Represents the console-based user interface for managing an artifact collection.
+// Represents the console-based user interface for managing an artifact collection.
 public class ArtifactConsole {
     private ArtifactCollection collection;
     private Scanner input;
