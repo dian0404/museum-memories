@@ -108,12 +108,18 @@ public class ArtifactConsole {
         String museumName = input.nextLine();
 
         List<Artifact> found = collection.getArtifactsByMuseum(museumName);
-        if (found.size() == 1) {
-            System.out.println("\nThis is the artifact in " + museumName + ":");
+        printSearchResult(found, museumName);
+    }
+
+    // EFFECTS: prints the search result based on the size of the found list
+    private void printSearchResult(List<Artifact> found, String museumName) {
+        if (found.isEmpty()) {
+            System.out.println("\nNo artifacts found in " + museumName + ".");
         } else {
-            System.out.println("\nThese are the artifacts in " + museumName + ":");
+            String msg = (found.size() == 1) ? "This is the artifact in " : "These are the artifacts in ";
+            System.out.println("\n" + msg + museumName + ":");
+            printArtifacts(found);
         }
-        printArtifacts(found);
     }
 
     // MODIFIES: this
