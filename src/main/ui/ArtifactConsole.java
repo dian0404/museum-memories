@@ -6,7 +6,10 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.Set;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
 // Represents the console-based user interface for managing an artifact collection.
+@ExcludeFromJacocoGeneratedReport
 public class ArtifactConsole {
     private ArtifactCollection collection;
     private Scanner input;
