@@ -15,5 +15,6 @@
 - As a user, I want to be able to view the list of all artifacts in  my artifact collection.
 - As a user, I want to find all 5-star artifacts in my artifact collection.
 - As a user, I want to be able to find all artifacts from a specific museum in my artifact collection.
-
+- As a user, I want to be able to save my artifact collection to file (if I so choose) so that I can preserve my recorded items.
+- As a user, I want to be able to load my artifact collection from file when I start the application (if I so choose).
 
