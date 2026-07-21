@@ -10,6 +10,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Represents the console-based user interface for managing an artifact collection.
 @ExcludeFromJacocoGeneratedReport
+// Code based on the Teller application provided in CPSC 210.
 public class ArtifactConsole {
     private ArtifactCollection collection;
     private Scanner input;
