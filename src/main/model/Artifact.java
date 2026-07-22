@@ -1,11 +1,10 @@
-// Represents an artifact with a name, museum, description, and rating.
-
 package model;
 
 import org.json.JSONObject;
 
 import persistence.Writable;
 
+// Represents an artifact with a name, museum, description, and rating.
 public class Artifact implements Writable {
     private String name;
     private String museum;

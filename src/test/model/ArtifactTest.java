@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
+// Tests for the Artifact class
 @ExcludeFromJacocoGeneratedReport
 public class ArtifactTest {
     private Artifact testArtifact;

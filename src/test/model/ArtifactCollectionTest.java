@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
+// Tests for the ArtifactCollection class
 @ExcludeFromJacocoGeneratedReport
-
 public class ArtifactCollectionTest {
 
     private ArtifactCollection testCollection;

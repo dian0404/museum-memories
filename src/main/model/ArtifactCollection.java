@@ -1,5 +1,3 @@
-// Represents a collection of artifacts.
-
 package model;
 
 import java.util.ArrayList;
@@ -11,6 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import persistence.Writable;
+
+// Represents a collection of artifacts.
 
 // REQUIRES: All elements in this list must be non-null.
 // EFFECTS: Maintains a list of artifacts in the collection.

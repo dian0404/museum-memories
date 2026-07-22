@@ -12,6 +12,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 // Code in this class is based on the JsonSerializationDemo provided by the UBC CPSC 210 course.
+
+// Tests for the JsonReader class
 @ExcludeFromJacocoGeneratedReport
 public class JsonReaderTest extends JsonTest {
 
