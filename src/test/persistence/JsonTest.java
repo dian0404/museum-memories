@@ -1,7 +1,6 @@
 package persistence;
 
 import model.Artifact;
-import model.ArtifactCollection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
