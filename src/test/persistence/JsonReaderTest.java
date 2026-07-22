@@ -22,10 +22,10 @@ public class JsonReaderTest extends JsonTest {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");
 
         try {
-            ArtifactCollection artifactCollection = reader.read();
+            reader.read();
             fail("IOException expected");
         } catch (IOException e) {
-            // pass
+            // expected
         }
     }
 

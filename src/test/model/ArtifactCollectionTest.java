@@ -88,7 +88,7 @@ public class ArtifactCollectionTest {
 
         testCollection.addArtifact(a1);
         fiveStars = testCollection.getFiveStarArtifacts();
-        assertEquals(1, testCollection.getFiveStarArtifacts().size());
+        assertEquals(1, fiveStars.size());
 
         testCollection.addArtifact(a3);
         fiveStars = testCollection.getFiveStarArtifacts();
@@ -107,7 +107,6 @@ public class ArtifactCollectionTest {
         Set<String> names = testCollection.getMuseumNames();
         assertEquals(1, names.size());
         assertTrue(names.contains("Hunan Museum"));
-        assertTrue(names.contains("Hunan Museum"));
     }
     
     @Test
@@ -118,7 +117,7 @@ public class ArtifactCollectionTest {
         Set<String> names = testCollection.getMuseumNames();
         assertEquals(2, names.size());
         assertTrue(names.contains("Hunan Museum"));
-        assertTrue(names.contains("Hunan Museum"));
+        assertTrue(names.contains("Liaoning Museum"));
     }
 
     @Test

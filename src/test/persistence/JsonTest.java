@@ -1,4 +1,3 @@
-// Represents a reader that reads an artifact collection from JSON data stored in a file
 package persistence;
 
 import model.Artifact;

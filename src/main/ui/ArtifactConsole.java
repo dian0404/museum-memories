@@ -2,30 +2,43 @@ package ui;
 
 import model.Artifact;
 import model.ArtifactCollection;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 import java.util.Scanner;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Set;
 
+import java.io.IOException;
+
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
-// Code based on the Teller application provided in CPSC 210.
+// Code in this class is based on the Teller application and JsonSerializationDemo provided by the UBC CPSC 210 course.
 
 // Represents the console-based user interface for managing an artifact collection.
 @ExcludeFromJacocoGeneratedReport
 public class ArtifactConsole {
+    private static final String JSON_STORE = "./data/artifacts.json";
+
     private ArtifactCollection collection;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
-    // EFFECTS: runs the artifact application
-    public ArtifactConsole() {
+    // EFFECTS: constructs and runs the artifact application
+    public ArtifactConsole() throws FileNotFoundException {
         collection = new ArtifactCollection();
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
+
         init();
         runArtifactConsole();
     }
 
     // MODIFIES: this
-    // EFFECTS: initializes the collection and scanner
+    // EFFECTS: adds initial artifacts to the collection
     private void init() {
         collection.addArtifact(new Artifact("Houmuwu Ding", "National Museum of China, Beijing",
                 "It is a huge bronze sacrificial vessel from the Shang Dynasty unearthed in Anyang.",
@@ -43,7 +56,7 @@ public class ArtifactConsole {
                 "This silver pot records the grand horse-dancing performance held in the Tang imperial palace.",
                 4));
         collection.addArtifact(new Artifact("Gold-inlaid Bronze Rhinoceros Zun", "National Museum of China, Beijing",
-                "It is a Western Han wine container shaped like a real rhinoceros covered with gold cloud patterns.", 
+                "It is a Western Han wine container shaped like a real rhinoceros covered with gold cloud patterns.",
                 4));
     }
 
@@ -74,6 +87,8 @@ public class ArtifactConsole {
         System.out.println("\tv -> view all artifacts");
         System.out.println("\tf -> view five-star artifacts");
         System.out.println("\ts -> search by museum");
+        System.out.println("\tsave -> save artifact collection to file");
+        System.out.println("\tload -> load artifact collection from file");
         System.out.println("\tq -> quit");
     }
 
@@ -88,6 +103,10 @@ public class ArtifactConsole {
             printArtifacts(collection.getFiveStarArtifacts());
         } else if (command.equals("s")) {
             searchByMuseum();
+        } else if (command.equals("save")) {
+            saveArtifactCollection();
+        } else if (command.equals("load")) {
+            loadArtifactCollection();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -160,6 +179,33 @@ public class ArtifactConsole {
             for (Artifact a : artifacts) {
                 System.out.println(a.getName() + " | " + a.getMuseum() + " | Rating: " + a.getRating());
             }
+        }
+    }
+
+    // EFFECTS: saves the artifact collection to file
+    private void saveArtifactCollection() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(collection);
+            jsonWriter.close();
+            System.out.println(
+                    "Saved artifact collection to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println(
+                    "Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads the artifact collection from file
+    private void loadArtifactCollection() {
+        try {
+            collection = jsonReader.read();
+            System.out.println(
+                    "Loaded artifact collection from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println(
+                    "Unable to read from file: " + JSON_STORE);
         }
     }
 }

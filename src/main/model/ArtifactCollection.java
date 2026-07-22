@@ -10,10 +10,10 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-// Represents a collection of artifacts.
+// JSON serialization code in this class is based on the
+// JsonSerializationDemo provided by the UBC CPSC 210 course.
 
-// REQUIRES: All elements in this list must be non-null.
-// EFFECTS: Maintains a list of artifacts in the collection.
+// Represents a collection of artifacts.
 public class ArtifactCollection implements Writable {
     private List<Artifact> artifacts;
 
@@ -35,7 +35,6 @@ public class ArtifactCollection implements Writable {
         return artifacts;
     }
 
-    // REQUIRES: artifacts not empty
     // EFFECTS: returns a list of all 5-star artifacts in the collection
     public List<Artifact> getFiveStarArtifacts() {
         List<Artifact> fiveStarArtifacts = new ArrayList<>();
@@ -47,7 +46,6 @@ public class ArtifactCollection implements Writable {
         return fiveStarArtifacts;
     }
 
-    // REQUIRES: artifacts not empty
     // EFFECTS: Returns a set containing all unique museum names associated
     // with the artifacts in the collection.
     public Set<String> getMuseumNames() {
@@ -58,7 +56,6 @@ public class ArtifactCollection implements Writable {
         return names;
     }
 
-    // REQUIRES: artifacts not empty
     // EFFECTS: returns a list of all artifacts from the specified museum in the
     // collection
     public List<Artifact> getArtifactsByMuseum(String museumName) {

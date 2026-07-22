@@ -4,6 +4,9 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
+// JSON serialization code in this class is based on the
+// JsonSerializationDemo provided by the UBC CPSC 210 course.
+
 // Represents an artifact with a name, museum, description, and rating.
 public class Artifact implements Writable {
     private String name;

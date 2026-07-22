@@ -19,8 +19,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            JsonWriter writer =
-                    new JsonWriter("./data/my\0illegal:fileName.json");
+            JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
         } catch (IOException e) {
@@ -31,8 +30,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterEmptyArtifactCollection() {
         try {
-            ArtifactCollection artifactCollection =
-                    new ArtifactCollection();
+            ArtifactCollection artifactCollection = new ArtifactCollection();
 
             JsonWriter writer = new JsonWriter(
                     "./data/testWriterEmptyArtifactCollection.json");
@@ -53,20 +51,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterGeneralArtifactCollection() {
         try {
-            ArtifactCollection artifactCollection =
-                    new ArtifactCollection();
-
-            artifactCollection.addArtifact(new Artifact(
-                    "Terracotta Warrior",
-                    "Emperor Qinshihuang's Mausoleum Site Museum",
-                    "A life-sized clay soldier from the Qin Dynasty",
-                    5));
-
-            artifactCollection.addArtifact(new Artifact(
-                    "The Starry Night",
-                    "Museum of Modern Art",
-                    "An oil painting created by Vincent van Gogh",
-                    4));
+            ArtifactCollection artifactCollection = createGeneralArtifactCollection();
 
             JsonWriter writer = new JsonWriter(
                     "./data/testWriterGeneralArtifactCollection.json");
@@ -76,29 +61,50 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader(
                     "./data/testWriterGeneralArtifactCollection.json");
-            artifactCollection = reader.read();
+            ArtifactCollection loadedCollection = reader.read();
 
-            List<Artifact> artifacts =
-                    artifactCollection.getArtifacts();
-
-            assertEquals(2, artifacts.size());
-
-            checkArtifact(
-                    "Terracotta Warrior",
-                    "Emperor Qinshihuang's Mausoleum Site Museum",
-                    "A life-sized clay soldier from the Qin Dynasty",
-                    5,
-                    artifacts.get(0));
-
-            checkArtifact(
-                    "The Starry Night",
-                    "Museum of Modern Art",
-                    "An oil painting created by Vincent van Gogh",
-                    4,
-                    artifacts.get(1));
-
+            checkGeneralArtifactCollection(loadedCollection);
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
+    }
+
+    private ArtifactCollection createGeneralArtifactCollection() {
+        ArtifactCollection artifactCollection = new ArtifactCollection();
+
+        artifactCollection.addArtifact(new Artifact(
+                "Terracotta Warrior",
+                "Emperor Qinshihuang's Mausoleum Site Museum",
+                "A life-sized clay soldier from the Qin Dynasty",
+                5));
+
+        artifactCollection.addArtifact(new Artifact(
+                "The Starry Night",
+                "Museum of Modern Art",
+                "An oil painting created by Vincent van Gogh",
+                4));
+
+        return artifactCollection;
+    }
+
+    private void checkGeneralArtifactCollection(
+            ArtifactCollection artifactCollection) {
+        List<Artifact> artifacts = artifactCollection.getArtifacts();
+
+        assertEquals(2, artifacts.size());
+
+        checkArtifact(
+                "Terracotta Warrior",
+                "Emperor Qinshihuang's Mausoleum Site Museum",
+                "A life-sized clay soldier from the Qin Dynasty",
+                5,
+                artifacts.get(0));
+
+        checkArtifact(
+                "The Starry Night",
+                "Museum of Modern Art",
+                "An oil painting created by Vincent van Gogh",
+                4,
+                artifacts.get(1));
     }
 }
