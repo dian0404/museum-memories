@@ -7,9 +7,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // REQUIRES: All elements in this list must be non-null.
 // EFFECTS: Maintains a list of artifacts in the collection.
-public class ArtifactCollection {
+public class ArtifactCollection implements Writable {
     private List<Artifact> artifacts;
 
     // EFFECTS: constructs an empty artifact collection
@@ -64,5 +69,24 @@ public class ArtifactCollection {
             }
         }
         return museumArtifacts;
+    }
+
+    @Override
+    // EFFECTS: returns this artifact collection as a JSON object
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("artifacts", artifactsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns artifacts in this collection as a JSON array
+    private JSONArray artifactsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Artifact artifact : artifacts) {
+            jsonArray.put(artifact.toJson());
+        }
+
+        return jsonArray;
     }
 }

@@ -2,7 +2,11 @@
 
 package model;
 
-public class Artifact {
+import org.json.JSONObject;
+
+import persistence.Writable;
+
+public class Artifact implements Writable {
     private String name;
     private String museum;
     private String description;
@@ -55,5 +59,16 @@ public class Artifact {
         } else {
             return false;
         }
+    }
+
+    @Override
+    // EFFECTS: returns this artifact as a JSON object
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("museum", museum);
+        json.put("description", description);
+        json.put("rating", rating);
+        return json;
     }
 }
