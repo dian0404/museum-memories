@@ -26,6 +26,11 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Code in this class is based on the AlarmSystem application, AlarmControllerUI.java file.
@@ -41,6 +46,8 @@ public class MuseumMemoriesGUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
     private JTextArea artifactDisplay;
+
+    private static final String BACKGROUND_IMAGE = "./data/museum-background.png";
 
     // EFFECTS: constructs and displays the Museum Memories GUI
     public MuseumMemoriesGUI() {
@@ -68,6 +75,7 @@ public class MuseumMemoriesGUI extends JFrame {
     private void configureFrame() {
         setTitle("Museum Memories");
         setSize(WIDTH, HEIGHT);
+        setContentPane(new BackgroundPanel());
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -98,6 +106,8 @@ public class MuseumMemoriesGUI extends JFrame {
     // EFFECTS: adds the artifact display area to the window
     private void addArtifactDisplayPanel() {
         artifactDisplay.setEditable(false);
+        artifactDisplay.setOpaque(false);
+        artifactDisplay.setForeground(Color.BLACK);
         artifactDisplay.setFont(
                 new Font("Serif", Font.PLAIN, 16));
         artifactDisplay.setLineWrap(true);
@@ -106,11 +116,14 @@ public class MuseumMemoriesGUI extends JFrame {
                 "No artifacts are currently displayed.");
 
         JScrollPane scrollPane = new JScrollPane(artifactDisplay);
+        scrollPane.setOpaque(false);
+        scrollPane.getViewport().setOpaque(false);
 
         TitledBorder titledBorder = BorderFactory.createTitledBorder(
                 "Artifact Collection");
         titledBorder.setTitleFont(
                 new Font("Serif", Font.BOLD, 20));
+
         scrollPane.setBorder(titledBorder);
         add(scrollPane, BorderLayout.CENTER);
     }
@@ -294,6 +307,33 @@ public class MuseumMemoriesGUI extends JFrame {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
+        // Represents a panel with a museum background image.
+    @ExcludeFromJacocoGeneratedReport
+    private class BackgroundPanel extends JPanel {
+        private Image backgroundImage;
+
+        // EFFECTS: constructs a panel with a background image
+        BackgroundPanel() {
+            ImageIcon imageIcon = new ImageIcon(BACKGROUND_IMAGE);
+            backgroundImage = imageIcon.getImage();
+        }
+
+        @Override
+        // MODIFIES: graphics
+        // EFFECTS: paints the background image on this panel
+        protected void paintComponent(Graphics graphics) {
+            super.paintComponent(graphics);
+
+            graphics.drawImage(
+                    backgroundImage,
+                    0,
+                    0,
+                    getWidth(),
+                    getHeight(),
+                    this);
+        }
+    }
+
     // Represents the action for adding an artifact.
     @ExcludeFromJacocoGeneratedReport
     private class AddArtifactAction
@@ -301,7 +341,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
         // EFFECTS: constructs an Add Artifact action
         AddArtifactAction() {
-            super("Add Artifact");
+            super("🏺 Add Artifact");
         }
 
         @Override
@@ -326,6 +366,7 @@ public class MuseumMemoriesGUI extends JFrame {
         }
     }
 
+
     // Represents the action for displaying all artifacts.
     @ExcludeFromJacocoGeneratedReport
     private class ShowAllAction
@@ -333,7 +374,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
         // EFFECTS: constructs a Show All action
         ShowAllAction() {
-            super("Show All");
+            super("🗂️ Show All");
         }
 
         @Override
@@ -354,7 +395,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
         // EFFECTS: constructs a Five Stars action
         FiveStarAction() {
-            super("⭐️⭐️⭐️⭐️⭐️");
+            super("⭐️ Five Stars");
         }
 
         @Override
@@ -376,7 +417,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
         // EFFECTS: constructs a Save action
         SaveAction() {
-            super("Save");
+            super("💾 Save");
         }
 
         @Override
@@ -390,8 +431,7 @@ public class MuseumMemoriesGUI extends JFrame {
                 jsonWriter.close();
 
                 showInformation(
-                        "Artifact collection "
-                                + "saved successfully!");
+                        "Artifact collection " + "saved successfully!");
             } catch (FileNotFoundException e) {
                 showError(
                         "Unable to write to "
@@ -407,7 +447,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
         // EFFECTS: constructs a Load action
         LoadAction() {
-            super("Load");
+            super("📂 Load");
         }
 
         @Override
@@ -424,18 +464,12 @@ public class MuseumMemoriesGUI extends JFrame {
                                 .getArtifacts());
 
                 showInformation(
-                        "Artifact collection "
-                                + "loaded successfully!");
+                        "Artifact collection " + "loaded successfully!");
             } catch (IOException e) {
                 showError(
                         "Unable to read from "
                                 + JSON_STORE);
             }
         }
-    }
-
-    // EFFECTS: starts the graphical application
-    public static void main(String[] args) {
-        new MuseumMemoriesGUI();
     }
 }
