@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -25,9 +27,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
-
-import java.awt.Graphics;
-import java.awt.Image;
+import javax.swing.ImageIcon;
 
 import javax.swing.ImageIcon;
 
@@ -49,11 +49,12 @@ public class MuseumMemoriesGUI extends JFrame {
 
     private static final String BACKGROUND_IMAGE = "./data/museum-background.png";
 
+    ImageIcon icon = new ImageIcon("./data/artifact-icon.png");
+
     // EFFECTS: constructs and displays the Museum Memories GUI
     public MuseumMemoriesGUI() {
         initializeFields();
         configureFrame();
-
         addTitlePanel();
         addArtifactDisplayPanel();
         addButtonPanel();
@@ -103,7 +104,10 @@ public class MuseumMemoriesGUI extends JFrame {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds the artifact display area to the window
+    // EFFECTS: adds the display area with a titled border to the centre of the
+    // window
+    // configures the artifact display area to be non-editable, transparent,
+    // word-wrapped, and scrollable;
     private void addArtifactDisplayPanel() {
         artifactDisplay.setEditable(false);
         artifactDisplay.setOpaque(false);
@@ -217,11 +221,14 @@ public class MuseumMemoriesGUI extends JFrame {
 
     // EFFECTS: displays a dialog and returns user input
     private String askForInput(String message) {
-        return JOptionPane.showInputDialog(
+        return (String) JOptionPane.showInputDialog(
                 this,
                 message,
                 "Add Artifact",
-                JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.PLAIN_MESSAGE,
+                icon,
+                null,
+                null);
     }
 
     // EFFECTS: creates an artifact from the given input;
@@ -307,7 +314,7 @@ public class MuseumMemoriesGUI extends JFrame {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
-        // Represents a panel with a museum background image.
+    // Represents a panel with a museum background image.
     @ExcludeFromJacocoGeneratedReport
     private class BackgroundPanel extends JPanel {
         private Image backgroundImage;
@@ -365,7 +372,6 @@ public class MuseumMemoriesGUI extends JFrame {
             }
         }
     }
-
 
     // Represents the action for displaying all artifacts.
     @ExcludeFromJacocoGeneratedReport
