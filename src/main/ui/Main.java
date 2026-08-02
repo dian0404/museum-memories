@@ -10,12 +10,9 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 @ExcludeFromJacocoGeneratedReport
 public class Main {
 
-    // EFFECTS: starts the artifact console application; prints an error message if a file cannot be found
+    // EFFECTS: starts the artifact console application; prints an error message if
+    // a file cannot be found
     public static void main(String[] args) {
-        try {
-            new ArtifactConsole();
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to run application: file not found");
-        }
+        new MuseumMemoriesGUI();
     }
 }
