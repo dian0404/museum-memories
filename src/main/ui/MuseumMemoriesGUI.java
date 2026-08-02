@@ -29,7 +29,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
 
-import javax.swing.ImageIcon;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
@@ -49,7 +48,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
     private static final String BACKGROUND_IMAGE = "./data/museum-background.png";
 
-    ImageIcon icon = new ImageIcon("./data/artifact-icon.png");
+    private ImageIcon icon;
 
     // EFFECTS: constructs and displays the Museum Memories GUI
     public MuseumMemoriesGUI() {
@@ -69,6 +68,8 @@ public class MuseumMemoriesGUI extends JFrame {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         artifactDisplay = new JTextArea();
+        
+        icon = new ImageIcon("./data/artifact-icon.png");
     }
 
     // MODIFIES: this
