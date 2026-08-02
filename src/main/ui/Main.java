@@ -1,7 +1,5 @@
 package ui;
 
-import java.io.FileNotFoundException;
-
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // This class is based on the Teller application provided in CPSC 210.
