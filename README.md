@@ -25,3 +25,6 @@
 - You can locate my visual component in the background of the main application window.
 - You can save the state of my application by clicking the "💾 Save" button.
 - You can reload the state of my application by clicking the "📂 Load" button.
+
+*Image Attribution*
+*The background image and artifact icon used in this application were generated using OpenAI's ChatGPT.*
