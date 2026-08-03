@@ -2,12 +2,11 @@ package ui;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
-// EFFECTS: starts the Museum Memories graphical user interface
+// Represents the entry point for the Museum Memories application
 @ExcludeFromJacocoGeneratedReport
 public class Main {
 
-    // EFFECTS: starts the artifact console application; prints an error message if
-    // a file cannot be found
+// EFFECTS: starts the Museum Memories graphical user interface
     public static void main(String[] args) {
         new MuseumMemoriesGUI();
     }
