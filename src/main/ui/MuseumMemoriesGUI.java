@@ -32,7 +32,8 @@ import javax.swing.ImageIcon;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
-// Code in this class is based on the AlarmSystem application, AlarmControllerUI.java file.
+// Code in this class is based in part on the AlarmSystem application, AlarmControllerUI.java file.
+// Code in this class is based in part on the YouTube tutorial "JFrame | Java Swing Tutorial for Beginners".
 
 // Represents the graphical user interface for Museum Memories.
 @ExcludeFromJacocoGeneratedReport
