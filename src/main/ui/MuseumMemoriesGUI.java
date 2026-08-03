@@ -29,7 +29,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
 
-
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Code in this class is based in part on the AlarmSystem application, AlarmControllerUI.java file.
@@ -69,7 +68,7 @@ public class MuseumMemoriesGUI extends JFrame {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         artifactDisplay = new JTextArea();
-        
+
         icon = new ImageIcon("./data/artifact-icon.png");
     }
 

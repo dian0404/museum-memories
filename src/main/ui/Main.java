@@ -2,9 +2,7 @@ package ui;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
-// This class is based on the Teller application provided in CPSC 210.
-
-// Represents the entry point for the artifact management application
+// EFFECTS: starts the Museum Memories graphical user interface
 @ExcludeFromJacocoGeneratedReport
 public class Main {
 
