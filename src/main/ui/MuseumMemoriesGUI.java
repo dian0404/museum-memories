@@ -365,7 +365,7 @@ public class MuseumMemoriesGUI extends JFrame {
                         artifact);
 
                 displayArtifacts(
-                        artifactCollection
+                        artifactCollection 
                                 .getArtifacts());
 
                 showInformation(
