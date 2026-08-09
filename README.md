@@ -55,3 +55,8 @@ Viewed all artifacts.
 Sun Aug 09 15:12:50 PDT 2026
 Viewed all five-star artifacts.
 ```
+
+## Phase 4: Task 3
+If I had more time to refactor my application, I would separate some of the responsibilities currently handled by the MuseumMemoriesGUI class. This class is responsible for constructing the graphical interface, processing user input, displaying artifacts, handling button actions, and coordinating the saving and loading of the artifact collection. Since this single class has multiple responsibilities, it could be refactored into several smaller classes.
+
+I would extract the artifact display area and button panel into separate GUI component classes, while leaving the main MuseumMemoriesGUI class responsible for coordinating the application. This would improve cohesion and make each class easier to understand and modify. However, introducing additional classes could make the structure of this relatively small application more complex.
