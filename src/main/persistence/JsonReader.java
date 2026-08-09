@@ -71,6 +71,6 @@ public class JsonReader {
         String description = jsonObject.getString("description");
         int rating = jsonObject.getInt("rating");
         Artifact artifact = new Artifact(name, museum, description, rating);
-        artifactCollection.addArtifact(artifact);
+        artifactCollection.addArtifactFromFile(artifact);
     }
 }

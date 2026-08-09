@@ -12,9 +12,14 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+
+import model.Event;
+import model.EventLog;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -58,6 +63,14 @@ public class MuseumMemoriesGUI extends JFrame {
         addArtifactDisplayPanel();
         addButtonPanel();
 
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printEventLog();
+                dispose();
+            }
+        });
+
         setVisible(true);
     }
 
@@ -79,7 +92,7 @@ public class MuseumMemoriesGUI extends JFrame {
         setSize(WIDTH, HEIGHT);
         setContentPane(new BackgroundPanel());
         setLayout(new BorderLayout());
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
@@ -315,6 +328,13 @@ public class MuseumMemoriesGUI extends JFrame {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // EFFECTS: prints all logged events to the console
+    private void printEventLog() {
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event);
+        }
+    }
+
     // Represents a panel with a museum background image.
     @ExcludeFromJacocoGeneratedReport
     private class BackgroundPanel extends JPanel {
@@ -365,7 +385,7 @@ public class MuseumMemoriesGUI extends JFrame {
                         artifact);
 
                 displayArtifacts(
-                        artifactCollection 
+                        artifactCollection
                                 .getArtifacts());
 
                 showInformation(
@@ -391,7 +411,7 @@ public class MuseumMemoriesGUI extends JFrame {
                 ActionEvent event) {
 
             displayArtifacts(
-                    artifactCollection.getArtifacts());
+                    artifactCollection.viewAllArtifacts());
         }
     }
 
@@ -465,6 +485,7 @@ public class MuseumMemoriesGUI extends JFrame {
 
             try {
                 artifactCollection = jsonReader.read();
+                artifactCollection.logCollectionLoaded();
 
                 displayArtifacts(
                         artifactCollection

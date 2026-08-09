@@ -23,10 +23,14 @@ public class ArtifactCollection implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds an artifact to the collection
+    // EFFECTS: if artifact is not already in the collection, adds it
+    // to the collection and logs the addition
     public void addArtifact(Artifact artifact) {
         if (!artifacts.contains(artifact)) {
             artifacts.add(artifact);
+
+            EventLog.getInstance().logEvent(
+                    new Event("Artifact added to Museum Memories: " + artifact.getName()));
         }
     }
 
@@ -43,6 +47,10 @@ public class ArtifactCollection implements Writable {
                 fiveStarArtifacts.add(artifact);
             }
         }
+
+        EventLog.getInstance().logEvent(
+                new Event("Viewed all five-star artifacts."));
+
         return fiveStarArtifacts;
     }
 
@@ -57,7 +65,7 @@ public class ArtifactCollection implements Writable {
     }
 
     // EFFECTS: returns a list of all artifacts from the specified museum in the
-    // collection
+    // collection and logs this action
     public List<Artifact> getArtifactsByMuseum(String museumName) {
         List<Artifact> museumArtifacts = new ArrayList<>();
         for (Artifact artifact : artifacts) {
@@ -65,7 +73,28 @@ public class ArtifactCollection implements Writable {
                 museumArtifacts.add(artifact);
             }
         }
+
+        EventLog.getInstance().logEvent(
+                new Event("Viewed artifacts from museum: " + museumName));
+
         return museumArtifacts;
+    }
+
+    // EFFECTS: returns all artifacts in this collection and logs that
+    // all artifacts were viewed
+    public List<Artifact> viewAllArtifacts() {
+        EventLog.getInstance().logEvent(
+                new Event("Viewed all artifacts."));
+        return artifacts;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: if artifact is not already in the collection, adds it
+    // without logging the addition
+    public void addArtifactFromFile(Artifact artifact) {
+        if (!artifacts.contains(artifact)) {
+            artifacts.add(artifact);
+        }
     }
 
     @Override
@@ -74,6 +103,12 @@ public class ArtifactCollection implements Writable {
         JSONObject json = new JSONObject();
         json.put("artifacts", artifactsToJson());
         return json;
+    }
+
+    // EFFECTS: logs that this artifact collection was loaded
+    public void logCollectionLoaded() {
+        EventLog.getInstance().logEvent(
+                new Event("Artifact collection loaded."));
     }
 
     // EFFECTS: returns artifacts in this collection as a JSON array
