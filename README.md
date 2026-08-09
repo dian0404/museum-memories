@@ -34,6 +34,7 @@
 The following is a representative sample of events logged during two runs of the application:
 
 ### First run
+```text
 Sun Aug 09 15:10:58 PDT 2026
 Artifact added to Museum Memories: Houmuwu Ding
 Sun Aug 09 15:11:21 PDT 2026
@@ -42,7 +43,9 @@ Sun Aug 09 15:11:43 PDT 2026
 Artifact added to Museum Memories: Gilded Silver Pot with Dancing Horse
 Sun Aug 09 15:11:45 PDT 2026
 Viewed all five-star artifacts.
+```
 ### Second run
+```text
 Sun Aug 09 15:12:16 PDT 2026
 Artifact collection loaded.
 Sun Aug 09 15:12:40 PDT 2026
@@ -51,4 +54,4 @@ Sun Aug 09 15:12:49 PDT 2026
 Viewed all artifacts.
 Sun Aug 09 15:12:50 PDT 2026
 Viewed all five-star artifacts.
-
+```
