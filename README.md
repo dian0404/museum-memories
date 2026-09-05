@@ -107,4 +107,4 @@ lib/                     Course-compatible local dependencies
 
 ## Acknowledgements
 
-The original project structure, JSON serialization approach, event log, and portions of the UI organization were developed for UBC CPSC 210 and were based in part on course examples including `JsonSerializationDemo`, the Teller application, and the Alarm System application. The background and artifact icon were generated with OpenAI's ChatGPT.
+The original project structure, JSON serialization approach, event log, and portions of the UI organization were developed for UBC CPSC 210 and were based in part on course examples including `JsonSerializationDemo`, the Teller application, and the Alarm System application. The background and artifact icon were generated with OpenAI's ChatGPT. The photos of these artifacts used in the demo are sourced from the Internet.
