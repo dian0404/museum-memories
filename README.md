@@ -78,7 +78,7 @@ data/demo-artifacts.json
 data/demo-images/
 ```
 
-Use the **Demo** button to load four public sample records. The included photographs were taken by the repository author; details are recorded in `data/demo-images/README.md`.
+Use the Demo button to load four public sample records. The artifact photos used in the demo are sourced from the Internet; details are recorded in `data/demo-images/README.md`.
 
 ## Project structure
 
