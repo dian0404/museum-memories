@@ -1,0 +1,20 @@
+{
+    "artifacts": [
+        {
+            "name": "Terracotta Warrior",
+            "museum": "Emperor Qinshihuang's Mausoleum Site Museum",
+            "description": "A life-sized clay soldier from the Qin Dynasty",
+            "rating": 5,
+            "visitDate": "2026-07-01",
+            "personalNote": "Seeing the terracotta warriors in person was very memorable."
+        },
+        {
+            "name": "The Starry Night",
+            "museum": "Museum of Modern Art",
+            "description": "An oil painting created by Vincent van Gogh",
+            "rating": 4,
+            "visitDate": "2026-07-05",
+            "personalNote": "I was impressed by the movement and colors in the painting."
+        }
+    ]
+}

@@ -70,7 +70,18 @@ public class JsonReader {
         String museum = jsonObject.getString("museum");
         String description = jsonObject.getString("description");
         int rating = jsonObject.getInt("rating");
-        Artifact artifact = new Artifact(name, museum, description, rating);
+
+        String visitDate = jsonObject.optString("visitDate", "");
+        String personalNote = jsonObject.optString("personalNote", "");
+
+        Artifact artifact = new Artifact(
+                name,
+                museum,
+                description,
+                rating,
+                visitDate,
+                personalNote);
+
         artifactCollection.addArtifactFromFile(artifact);
     }
 }

@@ -76,13 +76,17 @@ class JsonWriterTest extends JsonTest {
                 "Terracotta Warrior",
                 "Emperor Qinshihuang's Mausoleum Site Museum",
                 "A life-sized clay soldier from the Qin Dynasty",
-                5));
+                5,
+                "2026-07-01",
+                "Seeing the terracotta warriors in person was very memorable."));
 
         artifactCollection.addArtifact(new Artifact(
                 "The Starry Night",
                 "Museum of Modern Art",
                 "An oil painting created by Vincent van Gogh",
-                4));
+                4,
+                "2026-07-05",
+                "I was impressed by the movement and colors in the painting."));
 
         return artifactCollection;
     }
@@ -100,11 +104,21 @@ class JsonWriterTest extends JsonTest {
                 5,
                 artifacts.get(0));
 
+        assertEquals("2026-07-01", artifacts.get(0).getVisitDate());
+        assertEquals(
+                "Seeing the terracotta warriors in person was very memorable.",
+                artifacts.get(0).getPersonalNote());
+
         checkArtifact(
                 "The Starry Night",
                 "Museum of Modern Art",
                 "An oil painting created by Vincent van Gogh",
                 4,
                 artifacts.get(1));
+
+        assertEquals("2026-07-05", artifacts.get(1).getVisitDate());
+        assertEquals(
+                "I was impressed by the movement and colors in the painting.",
+                artifacts.get(1).getPersonalNote());
     }
 }
