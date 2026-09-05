@@ -7,20 +7,27 @@ import persistence.Writable;
 // JSON serialization code in this class is based on the
 // JsonSerializationDemo provided by the UBC CPSC 210 course.
 
-// Represents an artifact with a name, museum, description, and rating.
+// Represents an artifact with a name, museum, description, rating,
+// visit date, and personal note.
 public class Artifact implements Writable {
     private String name;
     private String museum;
     private String description;
     private int rating;
+    private String visitDate;
+    private String personalNote;
 
     // REQUIRES: rating is between 0 and 5, inclusive
-    // EFFECTS: constructs an artifact with a name, museum, description and rating
-    public Artifact(String name, String museum, String description, int rating) {
+    // EFFECTS: constructs an artifact with a name, museum, description, rating,
+    // visit date, and personal note
+    public Artifact(String name, String museum, String description, int rating, String visitDate, String personalNote) {
         this.name = name;
         this.museum = museum;
         this.description = description;
         this.rating = rating;
+        this.visitDate = visitDate;
+        this.personalNote = personalNote;
+
     }
 
     // EFFECTS: returns the name of the artifact
@@ -41,6 +48,16 @@ public class Artifact implements Writable {
     // EFFECTS: returns the rating of the artifact
     public int getRating() {
         return rating;
+    }
+
+    // EFFECTS: returns the visit date of the artifact
+    public String getVisitDate() {
+        return visitDate;
+    }
+
+    // EFFECTS: returns the personal note of the artifact
+    public String getPersonalNote() {
+        return personalNote;
     }
 
     // EFFECTS: returns true if the artifact has a 5-star rating
@@ -71,6 +88,8 @@ public class Artifact implements Writable {
         json.put("museum", museum);
         json.put("description", description);
         json.put("rating", rating);
+        json.put("visitDate", visitDate);
+        json.put("personalNote", personalNote);
         return json;
     }
 }
