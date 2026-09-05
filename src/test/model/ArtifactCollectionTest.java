@@ -22,21 +22,31 @@ public class ArtifactCollectionTest {
     @BeforeEach
     public void runBefore() {
         testCollection = new ArtifactCollection();
+
         a1 = new Artifact(
                 "T-shaped Silk Painting of Mawangdui",
                 "Hunan Museum",
                 "Ancient Han Dynasty silk painting unearthed from Mawangdui tombs",
-                5);
+                5,
+                "2026-07-10",
+                "I was especially impressed by the storytelling and symbolism in the painting.");
+
         a2 = new Artifact(
                 "Four Sheep Square Zun",
                 "Hunan Museum",
                 "Shang Dynasty bronze ritual vessel with four sheep decorations",
-                4);
+                4,
+                "2026-07-10",
+                "The bronze details and the four sheep design were very memorable.");
+
         a3 = new Artifact(
                 "Water Margin Portrait Scroll",
                 "Liaoning Museum",
                 "Ancient painting depicting heroes from Water Margin novel",
-                5);
+                5,
+                "2026-07-15",
+                "I liked how the historical figures were represented through traditional painting.");
+
     }
 
     @Test

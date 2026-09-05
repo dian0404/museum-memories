@@ -18,7 +18,9 @@ public class ArtifactTest {
                 "Gold-mounted Agate Rhinoceros Cup",
                 "Shaanxi History Museum",
                 "Tang Dynasty silk road national treasure, top cultural relic",
-                5);
+                5,
+                "2026-07-15",
+                "I was impressed by how detailed and well-preserved it was.");
     }
 
     @Test
@@ -27,6 +29,10 @@ public class ArtifactTest {
         assertEquals("Shaanxi History Museum", testArtifact.getMuseum());
         assertEquals("Tang Dynasty silk road national treasure, top cultural relic", testArtifact.getDescription());
         assertEquals(5, testArtifact.getRating());
+        assertEquals("2026-07-15", testArtifact.getVisitDate());
+        assertEquals(
+                "I was impressed by how detailed and well-preserved it was.",
+                testArtifact.getPersonalNote());
     }
 
     @Test
@@ -40,7 +46,10 @@ public class ArtifactTest {
                 "Houmuwu Ding",
                 "National Museum of China, Beijing",
                 "Largest and heaviest bronze sacrificial vessel of Shang Dynasty",
-                4);
+                4,
+                "2026-07-20",
+                "The scale of the bronze vessel was especially memorable.");
+
         assertFalse(testArtifactWith4Star.isFiveStar());
     }
 
