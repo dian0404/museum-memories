@@ -99,6 +99,9 @@ public class JsonReaderTest extends JsonTest {
             assertEquals(
                     "Seeing the terracotta warriors in person was very memorable.",
                     firstArtifact.getPersonalNote());
+            assertEquals(
+                    "/example/photos/terracotta-warrior.jpg",
+                    firstArtifact.getImagePath());
 
             Artifact secondArtifact = artifacts.get(1);
 
@@ -116,6 +119,9 @@ public class JsonReaderTest extends JsonTest {
             assertEquals(
                     "I was impressed by the movement and colors in the painting.",
                     secondArtifact.getPersonalNote());
+            assertEquals(
+                    "/example/photos/starry-night.png",
+                    secondArtifact.getImagePath());
 
         } catch (IOException e) {
             fail("Couldn't read from file");
@@ -144,6 +150,7 @@ public class JsonReaderTest extends JsonTest {
 
             assertEquals("", artifact.getVisitDate());
             assertEquals("", artifact.getPersonalNote());
+            assertEquals("", artifact.getImagePath());
 
         } catch (IOException e) {
             fail("Couldn't read from file");

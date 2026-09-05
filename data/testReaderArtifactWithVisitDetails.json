@@ -6,7 +6,8 @@
             "description": "A life-sized clay soldier from the Qin Dynasty",
             "rating": 5,
             "visitDate": "2026-07-01",
-            "personalNote": "Seeing the terracotta warriors in person was very memorable."
+            "personalNote": "Seeing the terracotta warriors in person was very memorable.",
+            "imagePath": "/example/photos/terracotta-warrior.jpg"
         },
         {
             "name": "The Starry Night",
@@ -14,7 +15,8 @@
             "description": "An oil painting created by Vincent van Gogh",
             "rating": 4,
             "visitDate": "2026-07-05",
-            "personalNote": "I was impressed by the movement and colors in the painting."
+            "personalNote": "I was impressed by the movement and colors in the painting.",
+            "imagePath": "/example/photos/starry-night.png"
         }
     ]
 }

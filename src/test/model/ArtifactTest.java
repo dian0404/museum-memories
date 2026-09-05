@@ -33,6 +33,7 @@ public class ArtifactTest {
         assertEquals(
                 "I was impressed by how detailed and well-preserved it was.",
                 testArtifact.getPersonalNote());
+        assertEquals("", testArtifact.getImagePath());
     }
 
     @Test

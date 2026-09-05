@@ -78,7 +78,8 @@ class JsonWriterTest extends JsonTest {
                 "A life-sized clay soldier from the Qin Dynasty",
                 5,
                 "2026-07-01",
-                "Seeing the terracotta warriors in person was very memorable."));
+                "Seeing the terracotta warriors in person was very memorable.",
+                "/example/photos/terracotta-warrior.jpg"));
 
         artifactCollection.addArtifact(new Artifact(
                 "The Starry Night",
@@ -86,7 +87,8 @@ class JsonWriterTest extends JsonTest {
                 "An oil painting created by Vincent van Gogh",
                 4,
                 "2026-07-05",
-                "I was impressed by the movement and colors in the painting."));
+                "I was impressed by the movement and colors in the painting.",
+                "/example/photos/starry-night.png"));
 
         return artifactCollection;
     }
@@ -108,6 +110,9 @@ class JsonWriterTest extends JsonTest {
         assertEquals(
                 "Seeing the terracotta warriors in person was very memorable.",
                 artifacts.get(0).getPersonalNote());
+        assertEquals(
+                "/example/photos/terracotta-warrior.jpg",
+                artifacts.get(0).getImagePath());
 
         checkArtifact(
                 "The Starry Night",
@@ -120,5 +125,8 @@ class JsonWriterTest extends JsonTest {
         assertEquals(
                 "I was impressed by the movement and colors in the painting.",
                 artifacts.get(1).getPersonalNote());
+        assertEquals(
+                "/example/photos/starry-night.png",
+                artifacts.get(1).getImagePath());
     }
 }

@@ -73,6 +73,7 @@ public class JsonReader {
 
         String visitDate = jsonObject.optString("visitDate", "");
         String personalNote = jsonObject.optString("personalNote", "");
+        String imagePath = jsonObject.optString("imagePath", "");
 
         Artifact artifact = new Artifact(
                 name,
@@ -80,7 +81,8 @@ public class JsonReader {
                 description,
                 rating,
                 visitDate,
-                personalNote);
+                personalNote,
+                imagePath);
 
         artifactCollection.addArtifactFromFile(artifact);
     }

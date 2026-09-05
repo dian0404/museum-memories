@@ -1,14 +1,20 @@
 {"artifacts": [
     {
+        "personalNote": "Seeing the terracotta warriors in person was very memorable.",
         "museum": "Emperor Qinshihuang's Mausoleum Site Museum",
+        "imagePath": "/example/photos/terracotta-warrior.jpg",
         "name": "Terracotta Warrior",
         "rating": 5,
-        "description": "A life-sized clay soldier from the Qin Dynasty"
+        "description": "A life-sized clay soldier from the Qin Dynasty",
+        "visitDate": "2026-07-01"
     },
     {
+        "personalNote": "I was impressed by the movement and colors in the painting.",
         "museum": "Museum of Modern Art",
+        "imagePath": "/example/photos/starry-night.png",
         "name": "The Starry Night",
         "rating": 4,
-        "description": "An oil painting created by Vincent van Gogh"
+        "description": "An oil painting created by Vincent van Gogh",
+        "visitDate": "2026-07-05"
     }
 ]}

@@ -16,18 +16,26 @@ public class Artifact implements Writable {
     private int rating;
     private String visitDate;
     private String personalNote;
+    private String imagePath;
 
     // REQUIRES: rating is between 0 and 5, inclusive
     // EFFECTS: constructs an artifact with a name, museum, description, rating,
     // visit date, and personal note
-    public Artifact(String name, String museum, String description, int rating, String visitDate, String personalNote) {
+    public Artifact(String name, String museum, String description, int rating,
+                    String visitDate, String personalNote) {
+        this(name, museum, description, rating, visitDate, personalNote, "");
+    }
+
+    // EFFECTS: constructs an artifact with an optional local image path
+    public Artifact(String name, String museum, String description, int rating,
+                    String visitDate, String personalNote, String imagePath) {
         this.name = name;
         this.museum = museum;
         this.description = description;
         this.rating = rating;
         this.visitDate = visitDate;
         this.personalNote = personalNote;
-
+        this.imagePath = imagePath;
     }
 
     // EFFECTS: returns the name of the artifact
@@ -60,6 +68,11 @@ public class Artifact implements Writable {
         return personalNote;
     }
 
+    // EFFECTS: returns the local image path of the artifact
+    public String getImagePath() {
+        return imagePath;
+    }
+
     // EFFECTS: returns true if the artifact has a 5-star rating
     // false otherwise
     public boolean isFiveStar() {
@@ -90,6 +103,7 @@ public class Artifact implements Writable {
         json.put("rating", rating);
         json.put("visitDate", visitDate);
         json.put("personalNote", personalNote);
+        json.put("imagePath", imagePath);
         return json;
     }
 }
