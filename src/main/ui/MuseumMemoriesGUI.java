@@ -208,6 +208,16 @@ public class MuseumMemoriesGUI extends JFrame {
                         + "\n");
 
         artifactDisplay.append(
+                "Visit Date: "
+                        + artifact.getVisitDate()
+                        + "\n");
+
+        artifactDisplay.append(
+                "Personal Note: "
+                        + artifact.getPersonalNote()
+                        + "\n");
+
+        artifactDisplay.append(
                 "Rating: "
                         + artifact.getRating()
                         + "/5\n\n");
@@ -224,13 +234,17 @@ public class MuseumMemoriesGUI extends JFrame {
 
         String museum = askForInput("Enter museum name:");
         String description = askForInput("Enter description:");
+        String visitDate = askForInput("Enter visit date:");
+        String personalNote = askForInput("Enter personal note:");
         String ratingText = askForInput("Enter rating from 0 to 5:");
 
         return createArtifact(
                 name,
                 museum,
                 description,
-                ratingText);
+                ratingText,
+                visitDate,
+                personalNote);
     }
 
     // EFFECTS: displays a dialog and returns user input
@@ -251,11 +265,15 @@ public class MuseumMemoriesGUI extends JFrame {
             String name,
             String museum,
             String description,
-            String ratingText) {
+            String ratingText,
+            String visitDate,
+            String personalNote) {
 
         if (museum == null
                 || description == null
-                || ratingText == null) {
+                || ratingText == null
+                || visitDate == null
+                || personalNote == null) {
             return null;
         }
 
@@ -263,7 +281,9 @@ public class MuseumMemoriesGUI extends JFrame {
                 name,
                 museum,
                 description,
-                ratingText);
+                ratingText,
+                visitDate,
+                personalNote);
     }
 
     // EFFECTS: parses the rating and creates an artifact;
@@ -272,7 +292,9 @@ public class MuseumMemoriesGUI extends JFrame {
             String name,
             String museum,
             String description,
-            String ratingText) {
+            String ratingText,
+            String visitDate,
+            String personalNote) {
 
         try {
             int rating = Integer.parseInt(ratingText);
@@ -281,7 +303,9 @@ public class MuseumMemoriesGUI extends JFrame {
                     name,
                     museum,
                     description,
-                    rating);
+                    rating,
+                    visitDate,
+                    personalNote);
         } catch (NumberFormatException e) {
             showError(
                     "Rating must be a whole number.");
@@ -295,7 +319,9 @@ public class MuseumMemoriesGUI extends JFrame {
             String name,
             String museum,
             String description,
-            int rating) {
+            int rating,
+            String visitDate,
+            String personalNote) {
 
         if (rating < 0 || rating > 5) {
             showError(
@@ -307,7 +333,9 @@ public class MuseumMemoriesGUI extends JFrame {
                 name,
                 museum,
                 description,
-                rating);
+                rating,
+                visitDate,
+                personalNote);
     }
 
     // EFFECTS: displays an error message
