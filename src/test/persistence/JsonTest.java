@@ -11,11 +11,9 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 // Provides a helper method for checking the fields of an artifact
 @ExcludeFromJacocoGeneratedReport
 public class JsonTest {
-    protected void checkArtifact(String name, String museum, String description, int rating, Artifact artifact) {
+    protected void checkArtifact(String name, String museum, int rating, Artifact artifact) {
         assertEquals(name, artifact.getName());
         assertEquals(museum, artifact.getMuseum());
-        assertEquals(description, artifact.getDescription());
         assertEquals(rating, artifact.getRating());
     }
 }
-

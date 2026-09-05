@@ -75,20 +75,18 @@ class JsonWriterTest extends JsonTest {
         artifactCollection.addArtifact(new Artifact(
                 "Terracotta Warrior",
                 "Emperor Qinshihuang's Mausoleum Site Museum",
-                "A life-sized clay soldier from the Qin Dynasty",
                 5,
                 "2026-07-01",
                 "Seeing the terracotta warriors in person was very memorable.",
-                "/example/photos/terracotta-warrior.jpg"));
+                "data/images/terracotta-warrior.jpg"));
 
         artifactCollection.addArtifact(new Artifact(
                 "The Starry Night",
                 "Museum of Modern Art",
-                "An oil painting created by Vincent van Gogh",
                 4,
                 "2026-07-05",
                 "I was impressed by the movement and colors in the painting.",
-                "/example/photos/starry-night.png"));
+                "data/images/starry-night.png"));
 
         return artifactCollection;
     }
@@ -102,7 +100,6 @@ class JsonWriterTest extends JsonTest {
         checkArtifact(
                 "Terracotta Warrior",
                 "Emperor Qinshihuang's Mausoleum Site Museum",
-                "A life-sized clay soldier from the Qin Dynasty",
                 5,
                 artifacts.get(0));
 
@@ -111,13 +108,12 @@ class JsonWriterTest extends JsonTest {
                 "Seeing the terracotta warriors in person was very memorable.",
                 artifacts.get(0).getPersonalNote());
         assertEquals(
-                "/example/photos/terracotta-warrior.jpg",
+                "data/images/terracotta-warrior.jpg",
                 artifacts.get(0).getImagePath());
 
         checkArtifact(
                 "The Starry Night",
                 "Museum of Modern Art",
-                "An oil painting created by Vincent van Gogh",
                 4,
                 artifacts.get(1));
 
@@ -126,7 +122,7 @@ class JsonWriterTest extends JsonTest {
                 "I was impressed by the movement and colors in the painting.",
                 artifacts.get(1).getPersonalNote());
         assertEquals(
-                "/example/photos/starry-night.png",
+                "data/images/starry-night.png",
                 artifacts.get(1).getImagePath());
     }
 }

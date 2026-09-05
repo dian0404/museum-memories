@@ -68,7 +68,6 @@ public class JsonReader {
     private void addArtifact(ArtifactCollection artifactCollection, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String museum = jsonObject.getString("museum");
-        String description = jsonObject.getString("description");
         int rating = jsonObject.getInt("rating");
 
         String visitDate = jsonObject.optString("visitDate", "");
@@ -78,7 +77,6 @@ public class JsonReader {
         Artifact artifact = new Artifact(
                 name,
                 museum,
-                description,
                 rating,
                 visitDate,
                 personalNote,

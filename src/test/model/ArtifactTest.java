@@ -17,7 +17,6 @@ public class ArtifactTest {
         testArtifact = new Artifact(
                 "Gold-mounted Agate Rhinoceros Cup",
                 "Shaanxi History Museum",
-                "Tang Dynasty silk road national treasure, top cultural relic",
                 5,
                 "2026-07-15",
                 "I was impressed by how detailed and well-preserved it was.");
@@ -27,7 +26,6 @@ public class ArtifactTest {
     public void testConstructor() {
         assertEquals("Gold-mounted Agate Rhinoceros Cup", testArtifact.getName());
         assertEquals("Shaanxi History Museum", testArtifact.getMuseum());
-        assertEquals("Tang Dynasty silk road national treasure, top cultural relic", testArtifact.getDescription());
         assertEquals(5, testArtifact.getRating());
         assertEquals("2026-07-15", testArtifact.getVisitDate());
         assertEquals(
@@ -46,7 +44,6 @@ public class ArtifactTest {
         Artifact testArtifactWith4Star = new Artifact(
                 "Houmuwu Ding",
                 "National Museum of China, Beijing",
-                "Largest and heaviest bronze sacrificial vessel of Shang Dynasty",
                 4,
                 "2026-07-20",
                 "The scale of the bronze vessel was especially memorable.");
@@ -62,5 +59,20 @@ public class ArtifactTest {
     @Test
     public void testBelongsToMuseumFalse() {
         assertFalse(testArtifact.belongsToMuseum("National Museum of China, Beijing"));
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals(
+                "Gold-mounted Agate Rhinoceros Cup — Shaanxi History Museum",
+                testArtifact.toString());
+    }
+
+    @Test
+    public void testSetImagePath() {
+        testArtifact.setImagePath("data/images/artifact.jpg");
+        assertEquals(
+                "data/images/artifact.jpg",
+                testArtifact.getImagePath());
     }
 }

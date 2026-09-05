@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import org.json.JSONArray;
@@ -95,6 +96,57 @@ public class ArtifactCollection implements Writable {
         if (!artifacts.contains(artifact)) {
             artifacts.add(artifact);
         }
+    }
+
+    // MODIFIES: artifact
+    // EFFECTS: updates an artifact in this collection and logs the change;
+    // returns false if the artifact is not in this collection
+    public boolean updateArtifact(Artifact artifact, String name,
+                                  String museum, int rating,
+                                  String visitDate, String personalNote,
+                                  String imagePath) {
+        if (!artifacts.contains(artifact)) {
+            return false;
+        }
+
+        artifact.updateDetails(
+                name, museum, rating, visitDate, personalNote, imagePath);
+        EventLog.getInstance().logEvent(
+                new Event("Artifact updated in Museum Memories: " + name));
+        return true;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: removes an artifact and logs the change;
+    // returns false if the artifact is not in this collection
+    public boolean removeArtifact(Artifact artifact) {
+        if (!artifacts.remove(artifact)) {
+            return false;
+        }
+
+        EventLog.getInstance().logEvent(
+                new Event("Artifact removed from Museum Memories: "
+                        + artifact.getName()));
+        return true;
+    }
+
+    // EFFECTS: returns artifacts whose name, museum, or personal note contains
+    // the keyword, ignoring case, and logs the search
+    public List<Artifact> searchArtifacts(String keyword) {
+        String normalizedKeyword = keyword.trim().toLowerCase(Locale.ROOT);
+        List<Artifact> matches = new ArrayList<>();
+
+        for (Artifact artifact : artifacts) {
+            if (artifact.getName().toLowerCase(Locale.ROOT).contains(normalizedKeyword)
+                    || artifact.getMuseum().toLowerCase(Locale.ROOT).contains(normalizedKeyword)
+                    || artifact.getPersonalNote().toLowerCase(Locale.ROOT).contains(normalizedKeyword)) {
+                matches.add(artifact);
+            }
+        }
+
+        EventLog.getInstance().logEvent(
+                new Event("Searched artifacts for: " + keyword));
+        return matches;
     }
 
     @Override

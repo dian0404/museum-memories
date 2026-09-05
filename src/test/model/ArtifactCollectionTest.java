@@ -26,7 +26,6 @@ public class ArtifactCollectionTest {
         a1 = new Artifact(
                 "T-shaped Silk Painting of Mawangdui",
                 "Hunan Museum",
-                "Ancient Han Dynasty silk painting unearthed from Mawangdui tombs",
                 5,
                 "2026-07-10",
                 "I was especially impressed by the storytelling and symbolism in the painting.");
@@ -34,7 +33,6 @@ public class ArtifactCollectionTest {
         a2 = new Artifact(
                 "Four Sheep Square Zun",
                 "Hunan Museum",
-                "Shang Dynasty bronze ritual vessel with four sheep decorations",
                 4,
                 "2026-07-10",
                 "The bronze details and the four sheep design were very memorable.");
@@ -42,7 +40,6 @@ public class ArtifactCollectionTest {
         a3 = new Artifact(
                 "Water Margin Portrait Scroll",
                 "Liaoning Museum",
-                "Ancient painting depicting heroes from Water Margin novel",
                 5,
                 "2026-07-15",
                 "I liked how the historical figures were represented through traditional painting.");
@@ -143,6 +140,128 @@ public class ArtifactCollectionTest {
         assertEquals(2, hunanArtifacts.size());
         assertTrue(hunanArtifacts.contains(a1));
         assertTrue(hunanArtifacts.contains(a2));
+    }
+
+    @Test
+    public void testUpdateArtifact() {
+        testCollection.addArtifact(a1);
+        a1.setImagePath("data/images/artifact.jpg");
+
+        assertTrue(testCollection.updateArtifact(
+                a1,
+                "Updated Artifact",
+                "Updated Museum",
+                3,
+                "2026-09-05",
+                "Updated personal note",
+                "data/images/updated-artifact.jpg"));
+
+        assertEquals("Updated Artifact", a1.getName());
+        assertEquals("Updated Museum", a1.getMuseum());
+        assertEquals(3, a1.getRating());
+        assertEquals("2026-09-05", a1.getVisitDate());
+        assertEquals("Updated personal note", a1.getPersonalNote());
+        assertEquals("data/images/updated-artifact.jpg", a1.getImagePath());
+    }
+
+    @Test
+    public void testUpdateArtifactNotInCollection() {
+        assertFalse(testCollection.updateArtifact(
+                a1,
+                "Updated Artifact",
+                "Updated Museum",
+                3,
+                "2026-09-05",
+                "Updated personal note",
+                "data/images/updated-artifact.jpg"));
+
+        assertEquals("T-shaped Silk Painting of Mawangdui", a1.getName());
+    }
+
+    @Test
+    public void testUpdateArtifactRemovesPhoto() {
+        testCollection.addArtifact(a1);
+        a1.setImagePath("data/images/artifact.jpg");
+
+        assertTrue(testCollection.updateArtifact(
+                a1,
+                a1.getName(),
+                a1.getMuseum(),
+                a1.getRating(),
+                a1.getVisitDate(),
+                a1.getPersonalNote(),
+                ""));
+
+        assertEquals("", a1.getImagePath());
+    }
+
+    @Test
+    public void testRemoveArtifact() {
+        testCollection.addArtifact(a1);
+        testCollection.addArtifact(a2);
+
+        assertTrue(testCollection.removeArtifact(a1));
+        checkCollectionSize(1);
+        assertFalse(testCollection.getArtifacts().contains(a1));
+        assertTrue(testCollection.getArtifacts().contains(a2));
+    }
+
+    @Test
+    public void testRemoveArtifactNotInCollection() {
+        testCollection.addArtifact(a1);
+
+        assertFalse(testCollection.removeArtifact(a2));
+        checkCollectionSize(1);
+        assertTrue(testCollection.getArtifacts().contains(a1));
+    }
+
+    @Test
+    public void testSearchArtifactsByName() {
+        addAllTestArtifacts();
+
+        List<Artifact> matches = testCollection.searchArtifacts("silk painting");
+
+        assertEquals(1, matches.size());
+        assertTrue(matches.contains(a1));
+    }
+
+    @Test
+    public void testSearchArtifactsByMuseumIgnoringCase() {
+        addAllTestArtifacts();
+
+        List<Artifact> matches = testCollection.searchArtifacts("HUNAN");
+
+        assertEquals(2, matches.size());
+        assertTrue(matches.contains(a1));
+        assertTrue(matches.contains(a2));
+    }
+
+    @Test
+    public void testSearchArtifactsByPersonalNote() {
+        addAllTestArtifacts();
+
+        List<Artifact> matches = testCollection.searchArtifacts("bronze details");
+
+        assertEquals(1, matches.size());
+        assertTrue(matches.contains(a2));
+    }
+
+    @Test
+    public void testSearchArtifactsNoMatches() {
+        addAllTestArtifacts();
+        assertTrue(testCollection.searchArtifacts("not in collection").isEmpty());
+    }
+
+    @Test
+    public void testSearchArtifactsEmptyKeyword() {
+        addAllTestArtifacts();
+        assertEquals(3, testCollection.searchArtifacts("   ").size());
+    }
+
+    private void addAllTestArtifacts() {
+        testCollection.addArtifact(a1);
+        testCollection.addArtifact(a2);
+        testCollection.addArtifact(a3);
     }
 
     private void checkCollectionSize(int expectedSize) {

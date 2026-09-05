@@ -1,0 +1,36 @@
+{
+    "artifacts": [
+        {
+            "name": "Grape-and-Bird Pattern Silver Incense Sachet",
+            "museum": "Shaanxi History Museum",
+            "rating": 5,
+            "visitDate": "2025-06-14",
+            "personalNote": "This Tang-dynasty silver incense sachet was designed to carry fragrance while an internal balancing mechanism kept the incense level as it moved. What amazed me most was how its delicate grape-and-bird openwork combines elegant decoration with such ingenious engineering.",
+            "imagePath": "data/demo-images/grape-and-bird-silver-incense-sachet.jpg"
+        },
+        {
+            "name": "Jade Burial Suit Sewn with Silver Thread",
+            "museum": "Nanjing Museum",
+            "rating": 4,
+            "visitDate": "2025-07-06",
+            "personalNote": "This Han-dynasty burial suit is made from thousands of jade pieces joined with silver thread and reflects ancient beliefs about protecting the body after death. What amazed me most was the enormous patience and precision required to shape and connect every small piece into a complete human form.",
+            "imagePath": "data/demo-images/silver-thread-jade-burial-suit.jpg"
+        },
+        {
+            "name": "Sun and Immortal Birds Gold Ornament",
+            "museum": "Chengdu Jinsha Site Museum",
+            "rating": 5,
+            "visitDate": "2025-07-20",
+            "personalNote": "This ancient gold ornament shows four birds flying around a central sun and has become an important symbol of the Jinsha culture. What amazed me most was how the flowing birds and rays make such a small, thin object feel energetic and surprisingly modern.",
+            "imagePath": "data/demo-images/sun-and-immortal-birds-gold-ornament.jpg"
+        },
+        {
+            "name": "Chime Bells of Marquis Yi of Zeng",
+            "museum": "Hubei Provincial Museum",
+            "rating": 5,
+            "visitDate": "2025-08-09",
+            "personalNote": "This large set of bronze chime bells came from the tomb of Marquis Yi of Zeng and could produce a rich range of carefully tuned musical tones. What amazed me most was the combination of its overwhelming scale, intricate decoration, and remarkably advanced acoustic design.",
+            "imagePath": "data/demo-images/marquis-yi-chime-bells.jpg"
+        }
+    ]
+}

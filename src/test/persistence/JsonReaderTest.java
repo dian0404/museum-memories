@@ -56,14 +56,12 @@ public class JsonReaderTest extends JsonTest {
             checkArtifact(
                     "Terracotta Warrior",
                     "Emperor Qinshihuang's Mausoleum Site Museum",
-                    "A life-sized clay soldier from the Qin Dynasty",
                     5,
                     artifacts.get(0));
 
             checkArtifact(
                     "The Starry Night",
                     "Museum of Modern Art",
-                    "An oil painting created by Vincent van Gogh",
                     4,
                     artifacts.get(1));
 
@@ -88,7 +86,6 @@ public class JsonReaderTest extends JsonTest {
             checkArtifact(
                     "Terracotta Warrior",
                     "Emperor Qinshihuang's Mausoleum Site Museum",
-                    "A life-sized clay soldier from the Qin Dynasty",
                     5,
                     firstArtifact);
 
@@ -100,7 +97,7 @@ public class JsonReaderTest extends JsonTest {
                     "Seeing the terracotta warriors in person was very memorable.",
                     firstArtifact.getPersonalNote());
             assertEquals(
-                    "/example/photos/terracotta-warrior.jpg",
+                    "data/images/terracotta-warrior.jpg",
                     firstArtifact.getImagePath());
 
             Artifact secondArtifact = artifacts.get(1);
@@ -108,7 +105,6 @@ public class JsonReaderTest extends JsonTest {
             checkArtifact(
                     "The Starry Night",
                     "Museum of Modern Art",
-                    "An oil painting created by Vincent van Gogh",
                     4,
                     secondArtifact);
 
@@ -120,7 +116,7 @@ public class JsonReaderTest extends JsonTest {
                     "I was impressed by the movement and colors in the painting.",
                     secondArtifact.getPersonalNote());
             assertEquals(
-                    "/example/photos/starry-night.png",
+                    "data/images/starry-night.png",
                     secondArtifact.getImagePath());
 
         } catch (IOException e) {
@@ -144,7 +140,6 @@ public class JsonReaderTest extends JsonTest {
             checkArtifact(
                     "Houmuwu Ding",
                     "National Museum of China, Beijing",
-                    "A bronze ritual vessel from the Shang Dynasty",
                     5,
                     artifact);
 
@@ -154,6 +149,29 @@ public class JsonReaderTest extends JsonTest {
 
         } catch (IOException e) {
             fail("Couldn't read from file");
+        }
+    }
+
+    @Test
+    void testReaderDemoArtifactCollection() {
+        JsonReader reader = new JsonReader("./data/demo-artifacts.json");
+
+        try {
+            ArtifactCollection collection = reader.read();
+            List<Artifact> artifacts = collection.getArtifacts();
+
+            assertEquals(4, artifacts.size());
+            checkArtifact(
+                    "Grape-and-Bird Pattern Silver Incense Sachet",
+                    "Shaanxi History Museum",
+                    5,
+                    artifacts.get(0));
+            assertEquals("2025-06-14", artifacts.get(0).getVisitDate());
+            assertEquals(
+                    "data/demo-images/grape-and-bird-silver-incense-sachet.jpg",
+                    artifacts.get(0).getImagePath());
+        } catch (IOException e) {
+            fail("Couldn't read the demo collection");
         }
     }
 }

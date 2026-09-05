@@ -7,7 +7,7 @@
             "rating": 5,
             "visitDate": "2026-07-01",
             "personalNote": "Seeing the terracotta warriors in person was very memorable.",
-            "imagePath": "/example/photos/terracotta-warrior.jpg"
+            "imagePath": "data/images/terracotta-warrior.jpg"
         },
         {
             "name": "The Starry Night",
@@ -16,7 +16,7 @@
             "rating": 4,
             "visitDate": "2026-07-05",
             "personalNote": "I was impressed by the movement and colors in the painting.",
-            "imagePath": "/example/photos/starry-night.png"
+            "imagePath": "data/images/starry-night.png"
         }
     ]
 }

@@ -43,7 +43,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 "Houmuwu Ding",
                 "National Museum of China, Beijing",
-                "It is a huge bronze sacrificial vessel from the Shang Dynasty unearthed in Anyang.",
                 5,
                 "",
                 ""));
@@ -51,7 +50,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 "Eagle-shaped Pottery Ding",
                 "National Museum of China, Beijing",
-                "This pottery work dates back over 6,000 years to the Yangshao Neolithic culture.",
                 3,
                 "",
                 ""));
@@ -59,7 +57,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 "Zeng Houyi Bianzhong",
                 "Hubei Provincial Museum",
-                "This is a complete set of chime bells buried with Marquis Zeng of the Warring States Period.",
                 5,
                 "",
                 ""));
@@ -67,7 +64,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 "Sword of Goujian, King of Yue",
                 "Hubei Provincial Museum",
-                "This bronze sword belonged to Goujian, king of Yue during the Spring and Autumn Period.",
                 5,
                 "",
                 ""));
@@ -75,7 +71,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 "Gilded Silver Pot with Dancing Horse",
                 "Shaanxi History Museum",
-                "This silver pot records the grand horse-dancing performance held in the Tang imperial palace.",
                 4,
                 "",
                 ""));
@@ -83,7 +78,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 "Gold-inlaid Bronze Rhinoceros Zun",
                 "National Museum of China, Beijing",
-                "It is a Western Han wine container shaped like a real rhinoceros covered with gold cloud patterns.",
                 4,
                 "",
                 ""));
@@ -186,9 +180,6 @@ public class ArtifactConsole {
         System.out.print("Enter museum: ");
         String museum = input.nextLine();
 
-        System.out.print("Enter description: ");
-        String description = input.nextLine();
-
         System.out.print("Enter visit date: ");
         String visitDate = input.nextLine();
 
@@ -208,7 +199,6 @@ public class ArtifactConsole {
         collection.addArtifact(new Artifact(
                 name,
                 museum,
-                description,
                 rating,
                 visitDate,
                 personalNote));
