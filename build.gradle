@@ -1,0 +1,37 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+group = 'com.dian.museummemories'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+sourceSets {
+    main {
+        java.srcDirs = ['src/main']
+    }
+    test {
+        java.srcDirs = ['src/test']
+    }
+}
+
+dependencies {
+    implementation files('lib/json-20250517.jar')
+    compileOnly files('lib/JacocoExcludeFromReportAnnotation.jar')
+    testCompileOnly files('lib/JacocoExcludeFromReportAnnotation.jar')
+    testImplementation files('lib/junit-platform-console-standalone-1.10.2.jar')
+}
+
+application {
+    mainClass = 'ui.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
