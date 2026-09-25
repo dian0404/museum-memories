@@ -7,6 +7,14 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
+    "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
+            "default": true
+        }
+    ],
     "java.checkstyle.configuration": "${workspaceFolder}/checkstyle.xml",
     "java.checkstyle.version": "10.2"
 }
