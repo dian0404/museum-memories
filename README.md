@@ -21,17 +21,27 @@ Museum visits often leave behind scattered photos and notes. I built Museum Memo
 
 ## Screenshots
 
+### Redesigned home view
+
+The redesigned layout keeps the museum background visible while presenting the collection and artifact details in readable translucent panels.
+
+![Museum Memories redesigned empty collection](docs/screenshots/empty-collection.png)
+
 ### Public demo collection
+
+The public demo lets reviewers browse sample memories with photographs, museum information, visit dates, ratings, and personal notes.
 
 ![Public demo collection with an artifact photo and details](docs/screenshots/public-demo.png)
 
+Selecting another artifact immediately updates the photograph and its accompanying story.
+
+![Public demo showing the Sun and Immortal Birds Gold Ornament](docs/screenshots/public-demo-gold-ornament.png)
+
 ### Adding a new artifact
 
-![Add Artifact dialog](docs/screenshots/add-artifact-dialog.png)
+The custom form keeps artifact details, a multi-line personal note, rating, and photo controls together in one focused dialog.
 
-### Empty private collection
-
-![Museum Memories empty collection](docs/screenshots/empty-collection.png)
+![Redesigned Add Artifact dialog](docs/screenshots/add-artifact-dialog.png)
 
 ## Technology
 
